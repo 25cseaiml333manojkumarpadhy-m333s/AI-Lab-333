@@ -1,12 +1,5 @@
-#objective function
-
 def objective_function(x):
-    return -4*(x - 5)**2 + 100      #Example function
-
-
-
-
-#hill climb function
+    return -4*(x - 5)**2 + 100     
 
 def hill_climbing(start, step_size, max_iterations):
     current = start
@@ -19,7 +12,7 @@ def hill_climbing(start, step_size, max_iterations):
         left_value = objective_function(left)
         right_value = objective_function(right)
 
-        # move to the better neighbor
+        # move to neighbor
         if left_value > current_value:
             current = left
             current_value = left_value
@@ -27,11 +20,10 @@ def hill_climbing(start, step_size, max_iterations):
             current = right
             current_value = right_value
         else:
-            break  # Local maximum reached
+            break  # Local max reached
 
     return current, current_value
 
-# Input
 start = float(input("Enter starting value: "))
 step_size = float(input("Enter step size: "))
 max_iterations = int(input("Enter maximum iterations: "))
